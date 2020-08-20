@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 const api = axios.create({
   baseURL:
-    "http://my-json-server.typicode.com/EnkiGroup/DesafioReactEncontact/",
+    'https://my-json-server.typicode.com/EnkiGroup/DesafioReactEncontact/',
 });
 
 export { api };
