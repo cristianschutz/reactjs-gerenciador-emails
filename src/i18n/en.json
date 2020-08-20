@@ -1,0 +1,20 @@
+{
+  "menu.all": "All",
+  "menu.see_all": "See All",
+  "avatar.english": "English",
+  "avatar.portuges": "Portuguese",
+  "avatar.welcome": "Welcome",
+  "avatar.language": "Language",
+  "avatar.dark_mode": "Dark Mode",
+  "avatar.light_mode": "Light Mode",
+  "dashboard.send_email": "Send Email",
+  "options.search": "Search",
+  "options.filter": "Filter",
+  "options.all": "All",
+  "options.archived": "Archived",
+  "options.scheduled": "Scheduled",
+  "options.trashed": "Trashed",
+  "options.schedule": "Schedule",
+  "options.archive": "Archive",
+  "options.selected": "selected"
+}

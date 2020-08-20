@@ -1,9 +1,8 @@
-import styled from "styled-components";
-import { colors } from "../../../styles/global";
+import styled from 'styled-components';
 
 const Container = styled.button`
   align-items: center;
-  background: ${colors.orange};
+  background: ${(props) => props.theme.colors.orange};
   border-radius: 3px;
   border: 0;
   color: #fff;
@@ -17,15 +16,15 @@ const Container = styled.button`
 
   &.text {
     background: none;
-    color: #202020;
+    color: ${(props) => props.theme.colors.black};
     padding: 0;
     font-weight: 500;
   }
 
   &.focus {
-    border-color: ${colors.orange};
+    border-color: ${(props) => props.theme.colors.orange};
     small {
-      color: ${colors.orange};
+      color: ${(props) => props.theme.colors.orange};
     }
   }
 

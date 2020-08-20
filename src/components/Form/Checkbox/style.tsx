@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../../../styles/global';
 
 const Container = styled.label`
   display: flex;
@@ -14,8 +13,8 @@ const Container = styled.label`
 
   span {
     content: '';
-    border: 2px solid ${colors.orange};
-    color: ${colors.orange};
+    border: 2px solid ${(props) => props.theme.colors.orange};
+    color: ${(props) => props.theme.colors.orange};
     cursor: pointer;
     height: 20px;
     width: 20px;
@@ -33,7 +32,7 @@ const Container = styled.label`
   }
 
   input:checked + span {
-    box-shadow: inset 0px 0px 0px 3px white;
+    /* box-shadow: inset 0px 0px 0px 3px white; */
 
     svg {
       opacity: 1;
@@ -41,7 +40,7 @@ const Container = styled.label`
   }
   small {
     margin-left: 10px;
-    color: ${colors.black};
+    color: ${(props) => props.theme.colors.black};
     font-size: 12px;
   }
 `;

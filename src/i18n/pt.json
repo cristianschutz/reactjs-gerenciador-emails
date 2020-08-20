@@ -1,0 +1,20 @@
+{
+  "menu.all": "Tudo",
+  "menu.see_all": "Ver tudo",
+  "avatar.english": "Inglês",
+  "avatar.portuges": "Português",
+  "avatar.welcome": "Bem vindo",
+  "avatar.language": "Idioma",
+  "avatar.dark_mode": "Modo Escuro",
+  "avatar.light_mode": "Modo Claro",
+  "dashboard.send_email": "Escrever Email",
+  "options.search": "Buscar",
+  "options.filter": "Filtro",
+  "options.all": "Todos",
+  "options.archived": "Arquivados",
+  "options.scheduled": "Agendados",
+  "options.trashed": "Lixeira",
+  "options.schedule": "Arquivar",
+  "options.archive": "Agendar",
+  "options.selected": "selecionado(s)"
+}

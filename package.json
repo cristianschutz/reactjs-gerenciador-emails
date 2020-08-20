@@ -15,8 +15,10 @@
     "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-intl": "^4.6.9",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-toastify": "^6.0.8",
     "styled-components": "^5.1.1",
     "typescript": "~3.7.2"
   },
@@ -24,6 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build && echo '/* /index.html  200' | cat >build/_redirects",
     "test": "react-scripts test",
+    "extract:messages": "extract-messages -l=pt,en,es -o src/i18n/messages --flat false './src/**/!(*.test).js' --overwriteDefault=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "extract-react-intl-messages": "^4.1.1"
   }
 }

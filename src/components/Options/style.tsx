@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/global';
 
 const Container = styled.nav`
   position: relative;
@@ -12,7 +11,7 @@ const Container = styled.nav`
   label:nth-child(2),
   label:first-of-type {
     margin-bottom: 22px;
-    width: calc(80% - 12px);
+    width: calc(100% - 169px);
 
     select,
     input {
@@ -26,13 +25,13 @@ const Container = styled.nav`
   }
 
   label:nth-child(2) {
-    width: calc(20% - 12px);
+    width: 145px;
   }
 
   hr {
     align-items: center;
     border: 0;
-    border-bottom: 1px solid ${colors.gray};
+    border-bottom: 1px solid ${(props) => props.theme.colors.gray};
     display: flex;
     margin: 0px -15px 10px;
     width: calc(100% + 15px);

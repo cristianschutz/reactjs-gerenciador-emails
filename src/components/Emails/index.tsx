@@ -1,6 +1,6 @@
 import React from 'react';
 import Item from './Item';
-import { useEmails } from '../../hooks/EmailsContext';
+import { useEmails } from '../../hooks/emails';
 import { Container } from './style';
 
 const Emails: React.FC = () => {

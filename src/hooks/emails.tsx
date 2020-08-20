@@ -45,21 +45,30 @@ const EmailsProvider: React.FC = ({ children }) => {
   const [emails, setEmails] = useState<IsubMenuItems[]>([]);
   const [checkedEmails, setCheckedEmails] = useState<string[]>([]);
   const [archievedEmails, setArchievedEmails] = useState<string[]>(
-    JSON.parse(localStorage.getItem('archievedEmails') || '[]')
+    JSON.parse(localStorage.getItem('@emailManager:archievedEmails') || '[]')
   );
   const [scheduledEmails, setScheduledEmails] = useState<string[]>(
-    JSON.parse(localStorage.getItem('scheduledEmails') || '[]')
+    JSON.parse(localStorage.getItem('@emailManager:scheduledEmails') || '[]')
   );
   const [trashedEmails, setTrashedEmails] = useState<string[]>(
-    JSON.parse(localStorage.getItem('trashedEmails') || '[]')
+    JSON.parse(localStorage.getItem('@emailManager:trashedEmails') || '[]')
   );
   let { id } = useParams();
   id = id ? '/' + id : '';
 
   useEffect(() => {
-    localStorage.setItem('archievedEmails', JSON.stringify(archievedEmails));
-    localStorage.setItem('scheduledEmails', JSON.stringify(scheduledEmails));
-    localStorage.setItem('trashedEmails', JSON.stringify(trashedEmails));
+    localStorage.setItem(
+      '@emailManager:archievedEmails',
+      JSON.stringify(archievedEmails)
+    );
+    localStorage.setItem(
+      '@emailManager:scheduledEmails',
+      JSON.stringify(scheduledEmails)
+    );
+    localStorage.setItem(
+      '@emailManager:trashedEmails',
+      JSON.stringify(trashedEmails)
+    );
 
     let array = [...pureEmails];
 
@@ -161,7 +170,6 @@ const EmailsProvider: React.FC = ({ children }) => {
   const handleFilter = useCallback(
     (inputValue) => {
       let filter;
-      console.log(inputValue);
 
       switch (inputValue) {
         case '1':

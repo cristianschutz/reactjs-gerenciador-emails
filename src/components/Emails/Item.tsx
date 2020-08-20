@@ -1,6 +1,7 @@
 import React from 'react';
 import { Checkbox } from '../index';
-import { useEmails } from '../../hooks/EmailsContext';
+import { useEmails } from '../../hooks/emails';
+import { useIntl } from '../../hooks/i18n';
 
 interface IsubMenuItems {
   id: string;
@@ -24,6 +25,7 @@ interface Ibg {
 
 const Item: React.FC<Props> = ({ item }) => {
   const { handleCheck, handleTrash, handleArchive } = useEmails();
+  const { formatMessage } = useIntl();
   const bg: Ibg = {
     B: 'cyan',
     C: 'darkblue',
@@ -47,7 +49,7 @@ const Item: React.FC<Props> = ({ item }) => {
           {item.owner}
         </span>
 
-        {!item.trashed && (
+        {!item.trashed && !item.archieved && (
           <Checkbox
             name="email[]"
             checked={item.checked}
@@ -59,10 +61,21 @@ const Item: React.FC<Props> = ({ item }) => {
       </div>
 
       <div className="email-col-data">
-        <small className="email-name">
-          {item.name} -{' '}
+        <div className="email-infos">
+          <span className="email-name">{item.name} - </span>
           <time className="email-datetime">22/09/2020 - 14:30</time>
-        </small>
+          <div className="email-tags">
+            {item.archieved && (
+              <span>{formatMessage({ id: 'options.archived' })}</span>
+            )}
+            {item.scheduled && (
+              <span>{formatMessage({ id: 'options.scheduled' })}</span>
+            )}
+            {item.trashed && (
+              <span>{formatMessage({ id: 'options.trashed' })}</span>
+            )}
+          </div>
+        </div>
 
         <h6 className="email-subject">{item.subject}</h6>
 

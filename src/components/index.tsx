@@ -8,6 +8,7 @@ import Input from './Form/Input';
 import Button from './Form/Button';
 import Select from './Form/Select';
 import Checkbox from './Form/Checkbox';
+import Toast, { toast } from './Toast';
 
 export {
   Avatar,
@@ -20,4 +21,6 @@ export {
   Emails,
   Options,
   Configs,
+  Toast,
+  toast,
 };

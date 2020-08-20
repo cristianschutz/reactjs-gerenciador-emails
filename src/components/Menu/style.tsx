@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { colors } from "../../styles/global";
+import styled from 'styled-components';
 
 const Container = styled.div`
   ol {
@@ -15,6 +14,8 @@ const Container = styled.div`
         font-weight: 700;
         font-size: 15px;
         padding: 0;
+        color: inherit;
+        background: none;
         margin-bottom: 5px;
         cursor: pointer;
         display: flex;
@@ -44,11 +45,11 @@ const Container = styled.div`
           align-items: center;
           width: 100%;
           cursor: pointer;
-          color: ${colors.black};
+          color: ${(props) => props.theme.colors.black};
           transition: all 0.2s ease-in-out;
 
           svg {
-            color: ${colors.orange};
+            color: ${(props) => props.theme.colors.orange};
             width: 10px;
             margin-right: 5px;
             transition: all 0.2s ease-in-out;
@@ -56,7 +57,7 @@ const Container = styled.div`
 
           &.active,
           &:hover {
-            color: ${colors.orange};
+            color: ${(props) => props.theme.colors.orange};
           }
         }
       }

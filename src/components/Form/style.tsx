@@ -1,9 +1,8 @@
-import styled from "styled-components";
-import { colors } from "../../styles/global";
+import styled from 'styled-components';
 
 const Container = styled.label`
   border-radius: 3px;
-  border: 1px solid ${colors.gray};
+  border: 1px solid ${(props) => props.theme.colors.gray};
   display: block;
   margin: 5px 0 25px;
   position: relative;
@@ -28,28 +27,19 @@ const Container = styled.label`
     width: 100%;
     font-size: 16px;
     outline: none;
+    color: ${(props) => props.theme.colors.black};
     padding: 0 15px;
     appearance: none;
 
-    &:-webkit-autofill {
-      -webkit-text-fill-color: inherit !important;
-      -webkit-box-shadow: 0 0 0 30px #fff inset !important;
-    }
-
-    &:-webkit-autofill {
-      animation-name: onAutoFillStart;
-      transition: background-color 50000s ease-in-out 0s;
-    }
-
-    &:not(:-webkit-autofill) {
-      animation-name: onAutoFillCancel;
+    &:-internal-autofill-selected {
+      background-color: transparent;
     }
   }
 
   &.focus {
-    border-color: ${colors.orange};
+    border-color: ${(props) => props.theme.colors.orange};
     small {
-      color: ${colors.orange};
+      color: ${(props) => props.theme.colors.orange};
     }
   }
 
@@ -57,7 +47,7 @@ const Container = styled.label`
     small {
       top: -7px;
       font-size: 12px;
-      background: #fff;
+      background: ${(props) => props.theme.colors.background};
       padding: 0 5px;
       left: 5px;
     }

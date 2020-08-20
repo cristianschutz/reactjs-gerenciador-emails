@@ -1,8 +1,8 @@
-import React from "react";
-import { Container } from "./style";
+import React from 'react';
+import { Container } from './style';
 
 interface Props {
-  type?: "text" | "";
+  type?: 'text' | '';
   onClick?: any;
 }
 

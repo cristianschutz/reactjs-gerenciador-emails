@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { colors } from "../../styles/global";
+import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
@@ -9,7 +8,6 @@ const Container = styled.div`
   aside {
     position: relative;
     width: 320px;
-    overflow: hidden;
     padding: 0 15px;
     min-width: 250px;
 
@@ -17,7 +15,7 @@ const Container = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid ${colors.gray};
+      border-bottom: 1px solid ${(props) => props.theme.colors.gray};
       padding: 15px;
       margin: 0 -15px 15px;
     }
@@ -26,7 +24,7 @@ const Container = styled.div`
       background: none;
       cursor: ew-resize;
       border: 0;
-      border-right: 1px solid ${colors.gray};
+      border-right: 1px solid ${(props) => props.theme.colors.gray};
       height: 100%;
       position: absolute;
       right: 0;

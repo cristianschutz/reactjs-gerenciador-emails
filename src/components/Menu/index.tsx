@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Item from './Item';
 import { api } from '../../services/api';
 import { Container } from './style';
+import { useIntl } from '../../hooks/i18n';
 
 interface IMenuItem {
   id: string;
@@ -16,6 +17,7 @@ interface IMenuItem {
 
 const Menu: React.FC = () => {
   const [menus, setMenus] = useState<IMenuItem[]>([]);
+  const { formatMessage } = useIntl();
 
   useEffect(() => {
     api.get<IMenuItem[]>('menus').then((response) => {
@@ -30,8 +32,8 @@ const Menu: React.FC = () => {
         <Item
           item={{
             id: '',
-            name: 'Tudo',
-            subMenus: [{ id: '', name: 'Ver tudo' }],
+            name: formatMessage({ id: 'menu.all' }),
+            subMenus: [{ id: '', name: formatMessage({ id: 'menu.see_all' }) }],
           }}
         />
         {menus.map((item) => (

@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { Container } from "../style";
+import React, { useRef, useState } from 'react';
+import { Container } from '../style';
 
 interface Props {
   type: string;
@@ -39,13 +39,14 @@ const Input: React.FC<Props> = (props) => {
     props.onChange && props.onChange(e);
   }
 
-  let activeClass = active === true ? "active" : "";
-  let focusClass = focus === true ? "focus" : "";
+  let activeClass = active === true ? 'active' : '';
+  let focusClass = focus === true ? 'focus' : '';
 
   return (
-    <Container className={activeClass + " " + focusClass}>
+    <Container className={activeClass + ' ' + focusClass}>
       <small>{props.label}</small>
       <input
+        autoComplete="no"
         name={props.name}
         type={props.type}
         ref={inputEl}

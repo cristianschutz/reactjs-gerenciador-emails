@@ -1,27 +1,40 @@
-import React, { useRef } from "react";
-import { EmailsProvider } from "../../hooks/EmailsContext";
-import { Avatar, Menu, Button, Emails, Options } from "../../components";
-import { Container } from "./style";
+import React, { useRef, useEffect } from 'react';
+import { EmailsProvider } from '../../hooks/emails';
+import { Avatar, Menu, Button, Emails, Options } from '../../components';
+import { Container } from './style';
+import { useIntl } from '../../hooks/i18n';
 
 const Dashboard: React.FC = () => {
   const refAside = useRef<HTMLAnchorElement>(null);
+  const { formatMessage } = useIntl();
 
   function start(e: any) {
     e.preventDefault();
-    window.addEventListener("mousemove", resize);
-    window.addEventListener("mouseup", stopResize);
+    window.addEventListener('mousemove', resize);
+    window.addEventListener('mouseup', stopResize);
   }
 
   function resize(e: any) {
+    console.log(e.pageX);
     if (refAside.current) {
-      refAside.current.style.width =
-        e.pageX - refAside.current.getBoundingClientRect().left + "px";
+      refAside.current.style.width = e.pageX + 60 + 'px';
     }
   }
 
   function stopResize() {
-    window.removeEventListener("mousemove", resize);
+    localStorage.setItem(
+      '@emailManager:width',
+      refAside?.current?.style.width || '320px'
+    );
+    window.removeEventListener('mousemove', resize);
   }
+
+  useEffect(() => {
+    if (refAside.current) {
+      refAside.current.style.width =
+        localStorage.getItem('@emailManager:width') || '320px';
+    }
+  }, []);
 
   return (
     <Container>
@@ -30,7 +43,7 @@ const Dashboard: React.FC = () => {
           <header>
             <Avatar />
 
-            <Button>Escrever Email</Button>
+            <Button>{formatMessage({ id: 'dashboard.send_email' })}</Button>
           </header>
           <Menu />
           <button className="btn-resize" onMouseDown={start}>

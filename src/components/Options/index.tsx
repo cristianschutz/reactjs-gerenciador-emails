@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Input, Button, Checkbox, Select } from '../index';
 import { Container } from './style';
-import { useEmails } from '../../hooks/EmailsContext';
+import { useEmails } from '../../hooks/emails';
+import { useIntl } from '../../hooks/i18n';
 
 const Options: React.FC = () => {
   const [filter, setFilter] = useState('0');
+  const { formatMessage } = useIntl();
 
   const { emails, pureEmails } = useEmails();
 
@@ -36,7 +38,7 @@ const Options: React.FC = () => {
     <Container>
       <Input
         type="text"
-        label="Search"
+        label={formatMessage({ id: 'options.search' })}
         name="search"
         onChange={(e: any) => {
           handleSearch(e.target.value);
@@ -44,28 +46,29 @@ const Options: React.FC = () => {
       />
       <Select
         name="filter"
-        label="Filtro"
+        label={formatMessage({ id: 'options.filter' })}
         options={[
           {
             label:
-              'Todos ' + (allEmails.length ? ' :: ' + allEmails.length : ''),
+              formatMessage({ id: 'options.all' }) +
+              (allEmails.length ? ' :: ' + allEmails.length : ''),
             value: 0,
           },
           {
             label:
-              'Arquivados ' +
+              formatMessage({ id: 'options.archived' }) +
               (archievedEmail.length ? ' :: ' + archievedEmail.length : ''),
             value: 1,
           },
           {
             label:
-              'Agendados ' +
+              formatMessage({ id: 'options.scheduled' }) +
               (scheduledEmail.length ? ' :: ' + scheduledEmail.length : ''),
             value: 2,
           },
           {
             label:
-              'Lixeira ' +
+              formatMessage({ id: 'options.trashed' }) +
               (trashedEmail.length ? ' :: ' + trashedEmail.length : ''),
             value: 3,
           },
@@ -82,7 +85,9 @@ const Options: React.FC = () => {
             name="email[]"
             label={
               checkedEmail.length > 0
-                ? checkedEmail.length + ' email(s) selecionados'
+                ? checkedEmail.length +
+                  ' email(s) ' +
+                  formatMessage({ id: 'options.selected' })
                 : ''
             }
             checked={checkedEmail.length === emails.length}
@@ -95,14 +100,14 @@ const Options: React.FC = () => {
               handleArchive();
             }}
           >
-            Arquivar
+            {formatMessage({ id: 'options.archive' })}
           </Button>
           <Button
             onClick={() => {
               handleSchedule();
             }}
           >
-            Agendar
+            {formatMessage({ id: 'options.schedule' })}
           </Button>
         </>
       ) : (

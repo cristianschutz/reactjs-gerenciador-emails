@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { colors } from "../../styles/global";
+import styled from 'styled-components';
 
 const Container = styled.div`
   .email-list {
@@ -11,11 +10,10 @@ const Container = styled.div`
   /* list item */
   .email-item {
     padding: 15px 10px;
-    border-bottom: 1px solid ${colors.gray};
+    border-bottom: 1px solid ${(props) => props.theme.colors.gray};
     position: relative;
     display: flex;
-    background: rgba(255, 255, 255, 0.5);
-    border-left: 3px solid ${colors.gray};
+    border-left: 3px solid ${(props) => props.theme.colors.gray};
 
     &:hover {
       background: transparent;
@@ -70,7 +68,7 @@ const Container = styled.div`
   .email-user {
     align-items: center;
     align-self: center;
-    background: ${colors.green};
+    background: ${(props) => props.theme.colors.green};
     border-radius: 50%;
     color: #fff;
     display: flex;
@@ -90,20 +88,39 @@ const Container = styled.div`
     width: 100%;
   }
 
-  .email-datetime {
-    font-size: 12px;
-    color: ${colors.black};
-  }
-  .email-subject {
-    margin: 0;
-    font-size: 12px;
+  .email-infos {
+    display: flex;
+    align-items: center;
+    margin: 0 0 8px;
   }
 
   .email-name {
-    margin: 0 0 8px;
-    display: block;
     font-size: 15px;
-    padding-right: 35px;
+    margin-right: 5px;
+  }
+
+  .email-datetime {
+    font-size: 12px;
+    margin-right: 10px;
+    color: ${(props) => props.theme.colors.black};
+  }
+
+  .email-tags {
+    display: flex;
+
+    span {
+      padding: 2px 5px;
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 9px;
+      color: #fff;
+      margin-right: 5px;
+      border-radius: 2px;
+    }
+  }
+
+  .email-subject {
+    margin: 0;
+    font-size: 12px;
   }
 
   .email-users {
@@ -150,6 +167,12 @@ const Container = styled.div`
     svg {
       width: 11px;
       margin-left: 5px;
+      ${(props) =>
+        props.theme.title === 'dark'
+          ? `
+          color: #fff;
+        `
+          : ``}
     }
   }
 `;

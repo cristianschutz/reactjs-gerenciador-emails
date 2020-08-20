@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { colors } from "../../styles/global";
+import styled from 'styled-components';
 
 const Container = styled.div`
   position: relative;
@@ -9,7 +8,7 @@ const Container = styled.div`
     height: 20px;
     padding: 0;
     margin-left: 15px;
-    color: ${colors.black};
+    color: ${(props) => props.theme.colors.black};
     cursor: pointer;
     border: 0;
     svg {
@@ -20,7 +19,7 @@ const Container = styled.div`
 
   ul {
     background: #fff;
-    border: 1px solid ${colors.gray};
+    border: 1px solid ${(props) => props.theme.colors.gray};
     display: none;
     list-style: none;
     padding: 0;
