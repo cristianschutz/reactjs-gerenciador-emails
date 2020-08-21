@@ -15,7 +15,6 @@ const Dashboard: React.FC = () => {
   }
 
   function resize(e: any) {
-    console.log(e.pageX);
     if (refAside.current) {
       refAside.current.style.width = e.pageX + 60 + 'px';
     }
