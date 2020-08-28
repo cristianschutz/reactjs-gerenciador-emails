@@ -1,9 +1,3 @@
-## Link
-
-[https://encontact.netlify.app/](https://encontact.netlify.app/)
-user/email: admin
-password: admin
-
 ##
 
 ![alt-text](https://i.imgur.com/4AGze9t.gif)
